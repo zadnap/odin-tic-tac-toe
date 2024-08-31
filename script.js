@@ -101,7 +101,7 @@ const GameController = (function () {
     currentPlayerIndex = 0;
     gameOver = false;
     Gameboard.resetBoard();
-    DisplayController.renderBoard();
+    DisplayController.resetBoard();
   }
 
   return {
@@ -111,16 +111,15 @@ const GameController = (function () {
 })();
 
 const DisplayController = (function () {
-  function renderBoard() {
-    const gameboard = document.querySelector(".gameboard");
-    gameboard.innerHTML = "";
-    Gameboard.getBoard().forEach(() => {
-      const newTile = document.createElement("div");
-      newTile.classList.add("tile");
-      gameboard.appendChild(newTile);
+  function resetBoard() {
+    const tiles = document.querySelectorAll(".tile");
+    tiles.forEach((tile) => {
+      tile.innerHTML = "";
+      tile.classList.remove("x");
+      tile.classList.remove("o");
     });
   }
-  renderBoard();
+  resetBoard();
 
   function updateCurrentPlayer(marker) {
     const container = document.querySelector(".container");
@@ -203,7 +202,7 @@ const DisplayController = (function () {
   listenReseting();
 
   return {
-    renderBoard,
+    resetBoard,
     updateTile,
     updateCurrentPlayer,
   };
