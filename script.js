@@ -118,6 +118,7 @@ const DisplayController = (function () {
       tile.classList.remove("x");
       tile.classList.remove("o");
     });
+    updateCurrentPlayer("x");
   }
   resetBoard();
 
