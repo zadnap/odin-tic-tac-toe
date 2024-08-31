@@ -15,6 +15,10 @@ button {
   --x-color: #e11d48;
   --o-color: #3b82f6;
   --victory-color: #f59e0b;
+
+  --container-min-size: 300px;
+  --container-ideal-size: 85vw;
+  --container-max-size: 500px;
 }
 
 @keyframes scaleUp {
@@ -48,19 +52,26 @@ html {
 
 body {
   height: 100vh;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #0000000c;
 }
 
+.container {
+  width: clamp(
+    var(--container-min-size),
+    var(--container-ideal-size),
+    var(--container-max-size)
+  );
+}
 .container.x-turn header {
   color: var(--x-color);
 }
 .container.o-turn header {
   color: var(--o-color);
 }
-
 .container.x-turn .reset {
   color: var(--x-color);
 }
@@ -92,6 +103,11 @@ header h3 {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 10px;
   margin: 10px 0;
+  height: clamp(
+    var(--container-min-size),
+    var(--container-ideal-size),
+    var(--container-max-size)
+  );
 }
 
 .tile {
@@ -99,22 +115,19 @@ header h3 {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  padding: 10px;
   cursor: pointer;
   box-shadow: 2px 2px 6px 3px #00000017;
   background-color: white;
 }
-
 .tile.o {
   color: var(--o-color);
 }
 .tile.x {
   color: var(--x-color);
 }
-
 .tile svg {
-  width: 10vw;
-  height: 10vw;
+  width: 80%;
+  height: 80%;
   animation: scaleUp ease-out 0.3s;
 }
 
@@ -154,4 +167,10 @@ header h3 {
 }
 .start-new:hover {
   color: var(--victory-color);
+}
+
+@media (orientation: landscape) {
+  body {
+    align-items: flex-start;
+  }
 }
