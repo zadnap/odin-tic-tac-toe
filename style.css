@@ -126,8 +126,8 @@ header h3 {
   color: var(--x-color);
 }
 .tile svg {
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
   animation: scaleUp ease-out 0.3s;
 }
 
