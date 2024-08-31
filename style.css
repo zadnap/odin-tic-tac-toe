@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+:root {
+  --x-color: #e11d48;
+  --o-color: #3b82f6;
+  --victory-color: #f59e0b;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.7);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0.9;
+    transform: translateY(-70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  font-style: normal;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0000000c;
+}
+
+.container.x-turn header {
+  color: var(--x-color);
+}
+.container.o-turn header {
+  color: var(--o-color);
+}
+
+.container.x-turn .reset {
+  color: var(--x-color);
+}
+.container.o-turn .reset {
+  color: var(--o-color);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 2px 2px 6px 3px #00000017;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+header.x-turn {
+  color: var(--x-color);
+}
+header.o-turn {
+  color: var(--o-color);
+}
+header h3 {
+  font-weight: 500;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px 3px #00000017;
+  background-color: white;
+}
+
+.tile.o {
+  color: var(--o-color);
+}
+.tile.x {
+  color: var(--x-color);
+}
+
+.tile svg {
+  width: 10vw;
+  height: 10vw;
+  animation: scaleUp ease-out 0.3s;
+}
+
+.reset {
+  padding: 7px 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 2px 6px 3px #00000017;
+  font-weight: 500;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.result-dialog {
+  display: none;
+  margin: 0 auto;
+  max-height: 50vh;
+  padding: 10px 15px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn ease 0.3s;
+}
+.result-dialog.show {
+  display: flex;
+}
+.result-dialog h3 {
+  color: var(--victory-color);
+}
+.start-new {
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 0.8rem;
+}
+.start-new:hover {
+  color: var(--victory-color);
+}

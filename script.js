@@ -27,9 +27,8 @@ const Gameboard = (function () {
   };
 })();
 
-const Player = function (name, marker) {
+const Player = function (marker) {
   return {
-    name,
     marker,
   };
 };
